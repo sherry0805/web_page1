@@ -127,7 +127,7 @@ export default {
   		setTimeout(()=>{
         //登录状态15天后过期
         let expireDays = 1000 * 60 * 60 * 24 * 15;
-  			// this.setCookie('session','blablablablabla...', expireDays);
+  			this.setCookie('session','blablablablabla...', expireDays);
         this.isLoging = false;
         //登录成功后
   			this.$router.push('/mainPage/');

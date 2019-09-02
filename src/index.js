@@ -138,20 +138,18 @@ var app = new Vue({
         "$route": 'checkLogin'
     },
     created() {
-        this.checkLogin();
+        this.$router.push('/login');
     },
     methods: {
         checkLogin() {
-            // 返回掉，下面的逻辑会导致左侧菜单栏切换时，右侧页面无法跳转
-            return false;
-
+            // do nothing
+        },
+        // 返回掉，下面的逻辑会导致左侧菜单栏切换时，右侧页面无法跳转
+        checkLogin1() {
             //检查是否存在session
             if (!this.getCookie('session')) {
-                console.log(11111)
                 this.$router.push('/login');
             } else {
-                console.log(3333)
-                // this.$router.push('/mainPage/123');
                 this.$router.push('/mainPage');
             }
         }
