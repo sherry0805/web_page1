@@ -1,23 +1,23 @@
 <template>
-  <div class="app-sidebar">
+  <div>
   <el-col class="menu">
     <el-menu
-        default-active="1"
+        default-active="/mainPage/preview/main"
         router
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
         :collapse="isCollapse"
       >
-        <el-menu-item index="/mainPage/preview">
+        <el-menu-item index="/mainPage/preview/main">
           <i class="el-icon-pre"></i>
           <span slot="title">预览</span>
         </el-menu-item>
-        <el-menu-item index="/mainPage/focus">
+        <el-menu-item index="/mainPage/preview/focus">
           <i class="el-icon-fs"></i>
           <span slot="title">调焦</span>
         </el-menu-item>
-        <el-menu-item index="/mainPage/shutter">
+        <el-menu-item index="/mainPage/preview/shut">
           <i class="el-icon-shut"></i>
           <span slot="title">快门</span>
         </el-menu-item>
@@ -39,11 +39,6 @@
         </el-menu-item>
       </el-menu>
     </el-col>
-    <el-col class="right_content">
-          <div class="tabs">
-              <router-view></router-view>
-          </div>
-      </el-col>
   </div>
 </template>
 
@@ -63,9 +58,6 @@ export default {
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
-  },
-  mounted() {
-    console.log('sidebar mounted!', this.$router.options.routes);
   }
 };
 </script>
@@ -79,9 +71,11 @@ export default {
       font-size: 16px;
       color: #000;
       font-weight: 550;
+      background-color: #EAEAEA;
   }
-  .el-menu-item:focus, .el-menu-item:hover {
+  .el-menu-item:focus, .el-menu-item:hover, .el-menu-item.is-active {
       color: #EA2F4A;
+      background-color: #E9D7D9;
   }
 
   .el-menu-item [class^=el-icon-] {

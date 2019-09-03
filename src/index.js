@@ -7,8 +7,6 @@ import App from './components/App.vue';
 import Login from './components/Login.vue';
 import MainPage from './components/MainPage.vue';
 import Preview from './views/Preview.vue';
-import Focus from './views/Focus.vue';
-import Shutter from './views/Shutter.vue';
 import Playback from './views/Playback.vue';
 import LogInfo from './views/LogInfo.vue';
 import Network from './views/Network.vue';
@@ -39,18 +37,11 @@ const router = new VueRouter({
         path: '/mainPage',
         component: MainPage,
         children: [
+            {path: '/', component: Preview},
             {
-                path: 'preview',
+                path: 'preview/:id',
                 name: '预览',
                 component: Preview
-            }, {
-                path: 'focus',
-                name: '调焦',
-                component: Focus
-            }, {
-                path: 'shutter',
-                name: '快门',
-                component: Shutter
             }, {
                 path: 'playback',
                 name: '回放',
@@ -138,7 +129,8 @@ var app = new Vue({
         "$route": 'checkLogin'
     },
     created() {
-        this.$router.push('/login');
+        // this.$router.push('/login');
+        this.$router.push('/mainPage');
     },
     methods: {
         checkLogin() {

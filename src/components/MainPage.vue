@@ -2,17 +2,19 @@
 
 <template>
   <div class="app">
-    <AppHeader></AppHeader>
-    <div class="app-body">
-      <Sidebar></Sidebar>
-      <main class="main">
-        <div class="container-fluid" style="height:calc(90% )">
+    <div class="app-wrap">
+      <AppHeader></AppHeader>
+      <div class="app-body">
+        <div class="app-sidebar">
+          <Sidebar></Sidebar>
+        </div>
+        <div class="app-main">
           <router-view></router-view>
         </div>
-      </main>
-      <AppAside></AppAside>
+        <!-- <AppAside></AppAside> -->
+      </div>
+      <AppFooter></AppFooter>
     </div>
-    <AppFooter></AppFooter>
   </div>
 </template>
 
@@ -28,9 +30,9 @@ export default {
     name: 'camera',
     components: {
         AppHeader,
-        Sidebar//,
+        Sidebar,
         // AppAside,
-        // AppFooter
+        AppFooter
     },
     data() {
         return {
@@ -56,7 +58,26 @@ export default {
 <style scoped>
     .app {
         padding: 10px 15px 0;
-        min-height: 770px;
+    }
+    .app-wrap {
+      background-color: #EAEAEA;
+    }
+
+    .app-sidebar {
+      width: 240px;
+    }
+
+    .app-body {
+      height: 720px;
+    }
+
+    .app-main {
+      background-color: #000;
+      margin-left: 240px;
+      /* margin-right: 270px; */
+      height: 100%;
+      /* padding: 0 115px; */
+      /* height: 90%; */
     }
 
 </style>
