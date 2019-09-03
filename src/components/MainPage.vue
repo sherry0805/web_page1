@@ -11,7 +11,6 @@
         <div class="app-main">
           <router-view></router-view>
         </div>
-        <!-- <AppAside></AppAside> -->
       </div>
       <AppFooter></AppFooter>
     </div>
@@ -23,7 +22,6 @@
 import AppHeader from './Header.vue';
 import Sidebar from './Sidebar.vue';
 // import Sidebar from './Test/Sidebar.vue';
-import AppAside from './Aside.vue';
 import AppFooter from './Footer.vue';
 
 export default {
@@ -31,13 +29,12 @@ export default {
     components: {
         AppHeader,
         Sidebar,
-        // AppAside,
         AppFooter
     },
     data() {
-        return {
-            isHead: true
-        };
+      return {
+        
+      };
     },
     computed: {
         name () {
@@ -50,7 +47,6 @@ export default {
     },
     mounted: function() {
       // this.$router.push('/preview/');
-      console.log('id=',this.$route.params.id);
     }
 }
 </script>

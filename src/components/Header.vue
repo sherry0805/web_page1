@@ -8,8 +8,13 @@
               <i @click="handleBack"></i>
           </li>
           <li class="nav-srch">
-              <i></i>
-              <input type="text" />
+              <!-- <i></i> -->
+              <!-- <input type="text" style="border-radius: 30px"/> -->
+                <el-input
+                    prefix-icon="el-icon-search"
+                    v-model="inputVal"
+                    @change="handleInput">
+                </el-input>
           </li>
       </ul>
       <ul class="nav-user ml-auto">
@@ -37,16 +42,44 @@ export default {
     name: 'header',
     data() {
         return {
-            circleUrl: "url(../images/main/top_user.png)"
+            circleUrl: "url(../images/main/top_user.png)",
+            inputVal: ''
         }
     },
     methods: {
         handleBack: function() {
             console.log(this.$routers);
+        },
+        handleInput: function(val) {
+            console.log(val)
         }
+    },
+    mounted: function() {
+        var _this = this;
+        var eleNav = document.getElementsByClassName('nav-srch')[0];
+        // 搜索按钮
+        var tag = eleNav.getElementsByClassName('el-input__prefix')[0];
+        tag.onclick = function() {
+            console.log('search', _this.inputVal);
+        };
     }
 }
 </script>
+
+// 这里要更改el-input组件的样式，需要去除掉scoped。避免整个组件样式被修改，再加上一个前置样式
+<style>
+
+/* 搜索按钮 */
+.nav-srch .el-input__prefix {
+    cursor: pointer;
+}
+
+/* 输入框圆角和宽度样式 */
+.nav-srch .el-input__inner {
+    border-radius: 30px;
+    width: 300px;
+}
+</style>
 
 <style scoped>
 
@@ -118,6 +151,7 @@ export default {
 
     .nav-srch {
         margin-left: 30px;
+        margin-top: 13px;
     }
 
     .nav-ver i{

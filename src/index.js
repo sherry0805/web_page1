@@ -1,3 +1,5 @@
+import './theme/index.css';
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
@@ -15,9 +17,7 @@ import Setting from './views/Setting.vue';
 import Version from './views/Version.vue';
 
 import './theme/style.css';
-import './theme/index.css';
 import './images/sprites/sprite.css';
-
 import './js/sha1.min.js';
 
 //状态管理
