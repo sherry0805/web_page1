@@ -87,6 +87,7 @@ export default {
         display: -webkit-flex; /* Safari */
         display: flex;
         flex-wrap: wrap;
+        background-color: #fff;
     }
     .app-head ul {
         /* float: left; */
