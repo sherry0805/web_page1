@@ -68,9 +68,7 @@
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page="currentPage"
-                        
-                        :page-size="10"
-                        layout="slot, total, sizes, prev, pager, next, jumper"
+                        layout="slot, total, prev, pager, next, jumper"
                         :total="fileList.length">
                             <span style="margin-right:20px;">已选{{selectedIndexs.length}}条</span>
                         </el-pagination>
@@ -88,11 +86,10 @@ export default {
     data() {
         return {
             pageSum: 10, // 每页显示的条数
-            chkSum: 0, // 当前选中的条数
-            selectedIndexs: [],
+            selectedIndexs: [], // 当前选中的索引
             currentPage: 1, // 当前页码
             currentIndex: 0, // 当前选中的文件在fileList中的索引
-            fileList: [],
+            fileList: [], // 文件列表
             currentFile: {
                 src: '/home/list/IMG000112.jpg',
                 time: '2019-08-13 16:00:00',

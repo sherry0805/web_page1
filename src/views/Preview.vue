@@ -198,7 +198,6 @@ export default {
         float: right;
         width: 270px;
         height: 100%;
-        
         background-color: #EAEAEA;
     }
 
