@@ -1,10 +1,10 @@
 <template>
-  <div class="app-head">
+  <div class="app-head" :style="{backgroundColor: (pageMode == 0) ? '#fff' : '#EAEAEA'}">
       <ul class="nav-logo">
           <li></li>
       </ul>
       <ul class="nav-opr">
-          <li class="nav-back">
+          <li class="nav-back" :class="{'current': pageMode != 0}">
               <i @click="handleBack"></i>
           </li>
           <li class="nav-srch">
@@ -22,15 +22,15 @@
             <el-avatar :size="38"></el-avatar>
             <span class="nav-name">admin</span>
           </li>
-          <li class="nav-ver">
+          <li class="nav-ver" @click="handleVersion" :class="{'current': pageMode == 1}">
               <i></i>
           </li>
-          <li class="nav-set">
+          <li class="nav-set" @click="handleSetting" :class="{'current': pageMode == 2}">
               <i></i>
           </li>
       </ul>
       <ul class="nav-detail">
-          <li>详细参数</li>
+          <li v-show="pageMode == 0">详细参数</li>
       </ul>
   </div>
 </template>
@@ -39,7 +39,13 @@
 <script>
 
 export default {
-    name: 'header',
+    name: 'appHeader',
+    props: {
+        pageMode: {// 0-预览 1-版本 2-设置
+            type: String,
+            default: '0'
+        }
+    },
     data() {
         return {
             circleUrl: "url(../images/main/top_user.png)",
@@ -47,11 +53,33 @@ export default {
         }
     },
     methods: {
-        handleBack: function() {
-            console.log(this.$routers);
+        handleBack: function(e) {
+            var ele = e.target.parentNode;
+            var idx = ele.className.indexOf('current');
+            if (idx > -1) {
+                this.$router.push('/mainPage/');
+            }
         },
         handleInput: function(val) {
             console.log(val)
+        },
+        handleVersion: function(e) {
+            var ele = e.target.parentNode;
+            var idx = ele.className.indexOf('current');
+            if (idx > -1) {
+                this.$router.push('/mainPage/');
+            } else {
+                this.$router.push('/version/');
+            }
+        },
+        handleSetting: function(e) {
+            var ele = e.target.parentNode;
+            var idx = ele.className.indexOf('current');
+            if (idx > -1) {
+                this.$router.push('/mainPage/');
+            } else {
+                this.$router.push('/setting/');
+            }
         }
     },
     mounted: function() {
@@ -88,6 +116,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         background-color: #fff;
+        border-bottom: 1px solid #E5E5E5;
     }
     .app-head ul {
         /* float: left; */
@@ -146,7 +175,7 @@ export default {
         height: 34px;
         cursor: pointer;
     }
-    .nav-back i:hover {
+    .nav-back i:hover, .nav-back.current i {
         background-image: url(../images/main/top_back_n.png);
     }
 
@@ -162,7 +191,7 @@ export default {
         height: 26px;
         cursor: pointer;
     }
-    .nav-ver i:hover {
+    .nav-ver i:hover, .nav-ver.current i{
         background-image: url(../images/main/top_about_s.png);
     }
 
@@ -173,7 +202,7 @@ export default {
         height: 26px;
         cursor: pointer;
     }
-    .nav-set i:hover {
+    .nav-set i:hover, .nav-set.current i {
         background-image: url(../images/main/top_set_s.png);
     }
 

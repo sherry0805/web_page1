@@ -1,8 +1,8 @@
 <template>
     <div class="ug-wrap">
         <ul>
-            <li>
-                <h2>升级ARM</h2>
+            <li class="ug-title">升级ARM</li>
+            <li class="marb50">
                 <el-upload
                     class="upload-demo"
                     ref="uploadArm"
@@ -18,8 +18,8 @@
                     <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUploadArm">升级</el-button>
                 </el-upload>
             </li>
-            <li>
-                <h2>升级FPGA</h2>
+            <li class="ug-title">升级FPGA</li>
+            <li class="marb50">
                 <el-upload
                     class="upload-demo"
                     ref="uploadFpga"
@@ -35,8 +35,8 @@
                     <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUploadFpga">升级</el-button>
                 </el-upload>
             </li>
-            <li>
-                <h2>升级WEB</h2>
+            <li class="ug-title">升级WEB</li>
+            <li class="marb50">
                 <el-upload
                     class="upload-demo"
                     ref="uploadWeb"
@@ -122,11 +122,17 @@ export default {
     .ug-wrap ul {
         padding: 30px;
     }
+
     .ug-wrap ul li {
+        margin-bottom: 15px;
+        color: #5f5e49;
+    }
+    .ug-wrap ul li.marb50 {
         margin-bottom: 50px;
     }
-    .ug-wrap ul li h2 {
-        margin-bottom: 15px;
+    .ug-title {
+        font-size: 20px;
+        font-weight: 500;
     }
 
     .ug-wrap li .el-input {

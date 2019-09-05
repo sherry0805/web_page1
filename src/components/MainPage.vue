@@ -25,7 +25,7 @@ import Sidebar from './Sidebar.vue';
 import AppFooter from './Footer.vue';
 
 export default {
-    name: 'camera',
+    name: 'mainPage',
     components: {
         AppHeader,
         Sidebar,
